@@ -25,6 +25,7 @@ import java.util.Set;
 import model.workspace.copycomposer.CopyComposerCST;
 import fr.imag.adele.cadse.cadseg.managers.build.ComposerManager;
 import fr.imag.adele.cadse.core.CadseException;
+import fr.imag.adele.cadse.core.CompactUUID;
 import fr.imag.adele.cadse.core.ContentItem;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
@@ -53,13 +54,13 @@ public class JavaRefComposerManager extends ComposerManager {
 	/**
 	 * @generated
 	 */
-	public class MyContentItem extends ComposerManager.MyContentItem {
+	public class MyContentItem extends ComposerManager.ComposerContent {
 
 		/**
 		 * @generated
 		 */
-		public MyContentItem(final ContentItem parent, final Item item) throws CadseException {
-			super(parent,item);
+		public MyContentItem(CompactUUID id) throws CadseException {
+			super(id);
 		}
 
 		@Override
@@ -136,7 +137,7 @@ public class JavaRefComposerManager extends ComposerManager {
 	 * @generated
 	 */
 	@Override
-	public String computeUniqueName(final Item item, final String shortName, final Item parent, final LinkType lt) {
+	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Object value;
@@ -181,10 +182,11 @@ public class JavaRefComposerManager extends ComposerManager {
 		
 		return null;
 	}
+
 	
 	@Override
-	public ContentItem createContentManager(final Item subContentModel) throws CadseException {
-		return new MyContentItem(null, subContentModel);
+	public ContentItem createContentItem(CompactUUID id) throws CadseException {
+		return new MyContentItem(id);
 	}
 
 	/**

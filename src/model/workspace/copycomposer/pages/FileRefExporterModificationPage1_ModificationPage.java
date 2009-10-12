@@ -26,7 +26,6 @@ import fede.workspace.model.manager.properties.impl.mc.MC_DefaultForList;
 import fede.workspace.model.manager.properties.impl.ui.DListUI;
 import fede.workspace.model.manager.properties.impl.ui.DTextUI;
 import fr.imag.adele.cadse.cadseg.IC_ItemTypeTemplateForText;
-import fr.imag.adele.cadse.cadseg.WorkspaceCST;
 import fr.imag.adele.cadse.cadseg.managers.content.ManagerManager;
 import fr.imag.adele.cadse.cadseg.pages.build.exporter.ExporterModificationPage1_ModificationPage;
 import fr.imag.adele.cadse.core.IItemNode;
@@ -129,7 +128,7 @@ public class FileRefExporterModificationPage1_ModificationPage extends
 		MC_DefaultForList mc = new MC_DefaultForList(1, -1);
 		IC_DefaultForList ic = new IC_DefaultForList("add a type",
 				"the string represent a exported type", false);
-		return new DListUI(WorkspaceCST.EXPORTER_at_TYPES, "content types",
+		return new DListUI(fr.imag.adele.cadse.core.CadseGCST.EXPORTER_at_TYPES, "content types",
 				EPosLabel.top, mc, ic, true, false, false, false);
 	}
 

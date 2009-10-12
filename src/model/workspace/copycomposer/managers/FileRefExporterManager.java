@@ -30,6 +30,7 @@ import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.cadseg.managers.content.ManagerManager;
 import fr.imag.adele.cadse.cadseg.managers.dataModel.ItemTypeManager;
 import fr.imag.adele.cadse.core.CadseException;
+import fr.imag.adele.cadse.core.CompactUUID;
 import fr.imag.adele.cadse.core.ContentItem;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
@@ -52,7 +53,7 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public String computeUniqueName(final Item item, final String shortName, final Item parent, final LinkType lt) {
+	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Object value;
@@ -86,13 +87,13 @@ public class FileRefExporterManager extends ExporterManager {
 	/**
 	 * @generated
 	 */
-	public class MyContentItem extends ExporterManager.MyContentItem {
+	public class MyContentItem extends ExporterManager.ExporterContent {
 
 		/**
 		 * @generated
 		 */
-		public MyContentItem(final ContentItem parent, final Item item) throws CadseException {
-			super(parent, item);
+		public MyContentItem(CompactUUID id) throws CadseException {
+			super(id);
 		}
 
 		@Override
@@ -281,13 +282,13 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentManager(final Item fileRefExporter) throws CadseException {
-		MyContentItem cm = new MyContentItem(null, fileRefExporter);
+	public ContentItem createContentItem(CompactUUID id) throws CadseException {
+		MyContentItem cm = new MyContentItem(id);
 		cm.setComposers();
 		cm.setExporters();
 		return cm;
 	}
-
+	
 	/**
 	 * @generated
 	 */

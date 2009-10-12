@@ -30,10 +30,10 @@ import fede.workspace.model.manager.properties.impl.ui.DCheckBoxUI;
 import fede.workspace.model.manager.properties.impl.ui.DListUI;
 import fede.workspace.model.manager.properties.impl.ui.DTextUI;
 import fr.imag.adele.cadse.cadseg.IC_ItemTypeTemplateForText;
-import fr.imag.adele.cadse.cadseg.WorkspaceCST;
 import fr.imag.adele.cadse.cadseg.managers.build.CompositeItemTypeManager;
 import fr.imag.adele.cadse.cadseg.managers.content.ManagerManager;
 import fr.imag.adele.cadse.cadseg.pages.build.composer.EclipseComposerModificationPage1_ModificationPage;
+import fr.imag.adele.cadse.core.CadseGCST;
 import fr.imag.adele.cadse.core.IItemNode;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
@@ -146,7 +146,7 @@ public class CopyIntoFolderComposerModificationPage1_ModificationPage extends
 	 */
 	public DCheckBoxUI createFieldExtendsClass() {
 		StringToBooleanModelControler mc = new StringToBooleanModelControler();
-		return new DCheckBoxUI(WorkspaceCST.COMPOSER_at_EXTENDS_CLASS,
+		return new DCheckBoxUI(CadseGCST.COMPOSER_at_EXTENDS_CLASS,
 				"extends generated class", EPosLabel.none, mc, null);
 	}
 
@@ -174,7 +174,7 @@ public class CopyIntoFolderComposerModificationPage1_ModificationPage extends
 		MC_DefaultForList mc = new MC_DefaultForList(1, -1);
 		IC_DefaultForList ic = new IC_DefaultForList("add a type.",
 				"the string represent a exported type.", false);
-		return new DListUI(WorkspaceCST.COMPOSER_at_TYPES, "content types",
+		return new DListUI(CadseGCST.COMPOSER_at_TYPES, "content types",
 				EPosLabel.top, mc, ic, true, false, false, false);
 	}
 
