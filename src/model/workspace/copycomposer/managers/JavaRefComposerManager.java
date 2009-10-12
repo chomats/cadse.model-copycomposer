@@ -18,7 +18,6 @@
  */
 package model.workspace.copycomposer.managers;
 
-import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.List;
 import java.util.Set;
 
@@ -33,8 +32,6 @@ import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.util.Convert;
-import fr.imag.adele.cadse.core.var.Variable;
-import java.lang.String;
 
 /**
  * @generated

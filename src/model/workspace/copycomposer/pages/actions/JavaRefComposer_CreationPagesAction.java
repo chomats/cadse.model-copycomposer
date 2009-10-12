@@ -1,7 +1,9 @@
 package model.workspace.copycomposer.pages.actions;
 
 
-import fr.imag.adele.cadse.core.*;
+import fr.imag.adele.cadse.core.Item;
+import fr.imag.adele.cadse.core.ItemType;
+import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.impl.ui.CreationAction;
 
 

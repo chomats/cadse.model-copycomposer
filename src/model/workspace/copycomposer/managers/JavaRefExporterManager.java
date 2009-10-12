@@ -18,7 +18,7 @@
  */
 package model.workspace.copycomposer.managers;
 
-import fede.workspace.eclipse.content.SubFileContentManager;
+import model.workspace.copycomposer.CopyComposerCST;
 import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.core.CadseException;
 import fr.imag.adele.cadse.core.CompactUUID;
@@ -27,8 +27,6 @@ import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
-import fr.imag.adele.cadse.core.var.Variable;
-import model.workspace.copycomposer.CopyComposerCST;
 
 /**
  * @generated
