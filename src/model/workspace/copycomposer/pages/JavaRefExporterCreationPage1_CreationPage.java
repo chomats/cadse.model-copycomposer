@@ -48,6 +48,7 @@ public class JavaRefExporterCreationPage1_CreationPage extends
 		this.parent = parent;
 		this.it = it;
 		this.lt = lt;
+		//this.__short_name__ = createInternalNameField();
 		setActionPage(null);
 		addLast();
 
@@ -58,6 +59,11 @@ public class JavaRefExporterCreationPage1_CreationPage extends
 	protected void registerListener() {
 		super.registerListener();
 		// add init and register
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		return false;
 	}
 
 }
