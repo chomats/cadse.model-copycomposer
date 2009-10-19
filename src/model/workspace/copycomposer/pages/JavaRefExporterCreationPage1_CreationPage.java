@@ -61,6 +61,9 @@ public class JavaRefExporterCreationPage1_CreationPage extends
 		// add init and register
 	}
 	
+	/**
+	 * Force this page to be displayed (not empty)
+	 */
 	@Override
 	public boolean isEmpty() {
 		return false;
