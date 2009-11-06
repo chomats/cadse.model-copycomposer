@@ -21,13 +21,13 @@ package model.workspace.copycomposer.pages;
 import model.workspace.copycomposer.CopyComposerCST;
 import model.workspace.copycomposer.managers.JavaRefComposerManager;
 import fede.workspace.eclipse.composition.copy.composer.JavaCopyComposer;
-import fede.workspace.model.manager.properties.impl.mc.StringToBooleanModelControler;
 import fede.workspace.model.manager.properties.impl.ui.DCheckBoxUI;
 import fr.imag.adele.cadse.cadseg.pages.build.ComposerCreationPage1_CreationPage;
 import fr.imag.adele.cadse.core.CadseException;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_StringToBoolean;
 import fr.imag.adele.cadse.core.ui.EPosLabel;
 import fr.imag.adele.cadse.core.ui.IPageController;
 
@@ -83,7 +83,7 @@ public class JavaRefComposerCreationPage1_CreationPage extends
 	 * @generated
 	 */
 	public DCheckBoxUI createFieldHasSources() {
-		StringToBooleanModelControler mc = new StringToBooleanModelControler();
+		MC_StringToBoolean mc = new MC_StringToBoolean();
 		return new DCheckBoxUI(
 				CopyComposerCST.JAVA_REF_COMPOSER_at_HAS_SOURCES,
 				"copy sources", EPosLabel.none, mc, null);
@@ -93,7 +93,7 @@ public class JavaRefComposerCreationPage1_CreationPage extends
 	 * @generated
 	 */
 	public DCheckBoxUI createFieldHasClasses() {
-		StringToBooleanModelControler mc = new StringToBooleanModelControler();
+		MC_StringToBoolean mc = new MC_StringToBoolean();
 		return new DCheckBoxUI(
 				CopyComposerCST.JAVA_REF_COMPOSER_at_HAS_CLASSES,
 				"copy classes", EPosLabel.none, mc, null);

@@ -21,9 +21,6 @@ package model.workspace.copycomposer.pages;
 import model.workspace.copycomposer.CopyComposerCST;
 import fede.workspace.model.manager.properties.impl.ic.IC_DefaultForList;
 import fede.workspace.model.manager.properties.impl.ic.IC_LinkForBrowser_Combo_List;
-import fede.workspace.model.manager.properties.impl.mc.LinkModelController;
-import fede.workspace.model.manager.properties.impl.mc.MC_DefaultForList;
-import fede.workspace.model.manager.properties.impl.mc.StringToBooleanModelControler;
 import fede.workspace.model.manager.properties.impl.ui.DCheckBoxUI;
 import fede.workspace.model.manager.properties.impl.ui.DListUI;
 import fede.workspace.model.manager.properties.impl.ui.DTextUI;
@@ -34,7 +31,10 @@ import fr.imag.adele.cadse.core.CadseGCST;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
-import fr.imag.adele.cadse.core.impl.ui.MC_AttributesItem;
+import fr.imag.adele.cadse.core.impl.ui.mc.LinkModelController;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_AttributesItem;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_DefaultForList;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_StringToBoolean;
 import fr.imag.adele.cadse.core.ui.EPosLabel;
 
 /**
@@ -138,7 +138,7 @@ public class CopyIntoFolderComposerCreationPage1_CreationPage extends
 	 * @generated
 	 */
 	public DCheckBoxUI createFieldExtendsClass() {
-		StringToBooleanModelControler mc = new StringToBooleanModelControler();
+		MC_StringToBoolean mc = new MC_StringToBoolean();
 		return new DCheckBoxUI(CadseGCST.COMPOSER_at_EXTENDS_CLASS,
 				"extend generated class", EPosLabel.none, mc, null);
 	}

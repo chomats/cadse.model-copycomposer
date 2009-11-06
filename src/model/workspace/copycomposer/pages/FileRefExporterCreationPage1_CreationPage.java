@@ -20,7 +20,6 @@ package model.workspace.copycomposer.pages;
 
 import model.workspace.copycomposer.CopyComposerCST;
 import fede.workspace.model.manager.properties.impl.ic.IC_DefaultForList;
-import fede.workspace.model.manager.properties.impl.mc.MC_DefaultForList;
 import fede.workspace.model.manager.properties.impl.ui.DListUI;
 import fede.workspace.model.manager.properties.impl.ui.DTextUI;
 import fr.imag.adele.cadse.cadseg.pages.build.exporter.ExporterCreationPage1_CreationPage;
@@ -28,7 +27,8 @@ import fr.imag.adele.cadse.core.CadseGCST;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
-import fr.imag.adele.cadse.core.impl.ui.MC_AttributesItem;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_AttributesItem;
+import fr.imag.adele.cadse.core.impl.ui.mc.MC_DefaultForList;
 import fr.imag.adele.cadse.core.ui.EPosLabel;
 
 /**
