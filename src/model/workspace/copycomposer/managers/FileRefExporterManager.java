@@ -30,7 +30,7 @@ import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.cadseg.managers.content.ManagerManager;
 import fr.imag.adele.cadse.cadseg.managers.dataModel.ItemTypeManager;
 import fr.imag.adele.cadse.core.CadseException;
-import fr.imag.adele.cadse.core.CompactUUID;
+import java.util.UUID;
 import fr.imag.adele.cadse.core.ContentItem;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
@@ -92,7 +92,7 @@ public class FileRefExporterManager extends ExporterManager {
 		/**
 		 * @generated
 		 */
-		public MyContentItem(CompactUUID id) throws CadseException {
+		public MyContentItem(UUID id) throws CadseException {
 			super(id);
 		}
 
@@ -282,7 +282,7 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(CompactUUID id) throws CadseException {
+	public ContentItem createContentItem(UUID id) throws CadseException {
 		MyContentItem cm = new MyContentItem(id);
 		cm.setComposers();
 		cm.setExporters();
