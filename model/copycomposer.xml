@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<p:c-item-types 
+xmlns:p="htt//fr.imag.adele/fede/workspace/model" 
+xmlns:xsi="htt//www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="htt//fr.imag.adele/fede/workspace/model ../../Tool.Workspace.InitModel/schema/WorkspaceModel.xsd ">
+  
+
+  <item-type intID="0" name="JavaRefExporter" has-content="true" super-type-name="Exporter" >
+  </item-type>
+  
+  <item-type intID="0" name="JavaRefComposer" has-content="true" super-type-name="Composer" >
+  </item-type>
+  
+  <item-type intID="0" name="FileRefExporter" has-content="true" super-type-name="Exporter" >
+  </item-type>
+       
+  <item-type intID="0" name="CopyIntoFolderComposer" has-content="true" super-type-name="Composer">
+    <meta-attribute key="title-create"><value type="string" value="a copy into folder composer">
+      </value></meta-attribute>
+    <meta-attribute key="must-be-extended"><value type="boolean" value="false">
+      </value></meta-attribute>
+    <meta-attribute key="class-name">
+      <value type="string" value="fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer">
+      </value></meta-attribute>
+    <outgoing-link intID="0" name="composer-links" min="0" max="-1"
+      destination="ComposerLink" isComposition="false" isAggregation="true"
+      isPart="true" isRequire="true" />
+    <outgoing-link intID="0" name="managesLT" min="1" max="-1"
+      destination="Link" isComposition="false" isAggregation="false"
+      isPart="false" isRequire="false" />
+  </item-type>
+  
+</p:c-item-types>
