@@ -30,8 +30,8 @@ import fr.imag.adele.cadse.cadseg.managers.build.ComposerManager;
 import fr.imag.adele.cadse.cadseg.managers.build.CompositeItemTypeManager;
 import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
 import fr.imag.adele.cadse.core.CadseException;
-import fr.imag.adele.cadse.core.CompactUUID;
-import fr.imag.adele.cadse.core.ContentItem;
+import java.util.UUID;
+import fr.imag.adele.cadse.core.content.ContentItem;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
@@ -51,7 +51,7 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 		/**
 		 * @generated
 		 */
-		public MyContentItem(CompactUUID id) throws CadseException {
+		public MyContentItem(UUID id) throws CadseException {
 			super(id);
 		}
 
@@ -308,7 +308,7 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(CompactUUID id) throws CadseException {
+	public ContentItem createContentItem(UUID id) throws CadseException {
 		MyContentItem cm = new MyContentItem(id);
 		cm.setComposers();
 		cm.setExporters();
