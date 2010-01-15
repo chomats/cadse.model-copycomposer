@@ -115,15 +115,15 @@ public class FileRefExporterManager extends ExporterManager {
 
 			if ("inner-class".equals(kind)) {
 				generateParts(sb, type, kind, imports, null);
-				final boolean extendsClass = mustBeExtended() || isExtendsClass(getItem());
+				final boolean extendsClass = mustBeExtended() || isExtendsClass(getOwnerItem());
 
 				if (extendsClass) {
 
 					String extendsClassName = defaultClassName;
-					defaultClassName = JavaIdentifier.javaIdentifierFromString(getItem().getName(), true, false,
+					defaultClassName = JavaIdentifier.javaIdentifierFromString(getOwnerItem().getName(), true, false,
 							"Exporter");
 
-					final Item manager = getItem().getPartParent();
+					final Item manager = getOwnerItem().getPartParent();
 
 					final Item itemtype = ManagerManager.getItemType(manager);
 
@@ -174,10 +174,10 @@ public class FileRefExporterManager extends ExporterManager {
 				}
 			}
 			if ("exporters".equals(kind)) {
-				final boolean extendsClass = mustBeExtended() || isExtendsClass(getItem());
+				final boolean extendsClass = mustBeExtended() || isExtendsClass(getOwnerItem());
 
 				if (extendsClass) {
-					defaultClassName = JavaIdentifier.javaIdentifierFromString(getItem().getName(), true, false,
+					defaultClassName = JavaIdentifier.javaIdentifierFromString(getOwnerItem().getName(), true, false,
 							"Exporter");
 				}
 
@@ -210,11 +210,11 @@ public class FileRefExporterManager extends ExporterManager {
 			sb.newline();
 
 			// Generate evaluation of folder attribute value expresion
-			String value = getItem().getAttribute(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER_);
+			String value = getOwnerItem().getAttribute(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER_);
 			if (value == null || value.length() == 0) {
 				value = "";
 			}
-			final Item itemtype = ManagerManager.getItemType(getItem().getPartParent());
+			final Item itemtype = ManagerManager.getItemType(getOwnerItem().getPartParent());
 			final ParseTemplate pt = new ParseTemplate(itemtype, value, null);
 			try {
 				pt.main();
@@ -284,8 +284,6 @@ public class FileRefExporterManager extends ExporterManager {
 	@Override
 	public ContentItem createContentItem(UUID id) throws CadseException {
 		MyContentItem cm = new MyContentItem(id);
-		cm.setComposers();
-		cm.setExporters();
 		return cm;
 	}
 	
@@ -323,7 +321,7 @@ public class FileRefExporterManager extends ExporterManager {
 
 	@Override
 	public List<Item> validate(final Item item, final ProblemReporter reporter) {
-		String value = item.getAttribute(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER);
+		String value = item.getAttribute(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER_);
 		if (value == null || value.length() == 0) {
 			value = "";
 		}
