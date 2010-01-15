@@ -119,7 +119,7 @@ public class JavaRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(UUID id) throws CadseException {
+	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
 		return new MyContentItem(id);
 	}
 
