@@ -282,7 +282,7 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(UUID id) throws CadseException {
+	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
 		MyContentItem cm = new MyContentItem(id);
 		return cm;
 	}
