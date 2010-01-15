@@ -65,8 +65,8 @@ public class JavaRefComposerManager extends ComposerManager {
 			super.computeImportsPackage(imports);
 
 			imports.add("org.eclipse.core.runtime");
-			final boolean has_sources = hasSources(getItem());
-			final boolean has_classes = hasClasses(getItem());
+			final boolean has_sources = hasSources(getOwnerItem());
+			final boolean has_classes = hasClasses(getOwnerItem());
 
 			if (has_classes || has_sources) {
 				imports.add("fede.workspace.eclipse.composition.copy.composer");
@@ -77,9 +77,9 @@ public class JavaRefComposerManager extends ComposerManager {
 		public void generate(final GenStringBuilder sb, final String type, final String kind,
 				final Set<String> imports, final GenContext context) {
 
-			final boolean has_sources = hasSources(getItem());
-			final boolean has_classes = hasClasses(getItem());
-			final boolean has_aspects = hasAspects(getItem());
+			final boolean has_sources = hasSources(getOwnerItem());
+			final boolean has_classes = hasClasses(getOwnerItem());
+			final boolean has_aspects = hasAspects(getOwnerItem());
 
 			final String classcomposer = "fede.workspace.eclipse.composition.copy.composer.JavaClassesCopyComposer";
 			String sourcecompser = "fede.workspace.eclipse.composition.copy.composer.JavaSourcesCopyComposer";
@@ -87,12 +87,12 @@ public class JavaRefComposerManager extends ComposerManager {
 			if ("composers".equals(kind)) {
 
 
-				final String classFolder = getItem().getAttribute(
+				final String classFolder = getOwnerItem().getAttribute(
 						CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_CLASSES_);
 
 				boolean classFolderSpecified = (classFolder != null && classFolder.length()> 0);
 				
-				final String sourceFolder = getItem().getAttribute(
+				final String sourceFolder = getOwnerItem().getAttribute(
 						CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_SOURCES_);
 
 				boolean sourceFolderSpecified = (sourceFolder != null || sourceFolder.length() > 0);

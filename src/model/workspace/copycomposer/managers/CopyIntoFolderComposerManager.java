@@ -76,11 +76,11 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 				imports.add("fr.imag.adele.cadse.core.Item");
 				imports.add("fr.imag.adele.cadse.core.CadseException");
 				imports.add(defaultQualifiedClassName);
-				final boolean extendsClass = mustBeExtended() || isExtendsClass(getItem());
+				final boolean extendsClass = mustBeExtended() || isExtendsClass(getOwnerItem());
 				if (extendsClass) {
 
 					final String extendsClassName = defaultClassName;
-					defaultClassName = JavaIdentifier.javaIdentifierFromString(getItem().getName(), true, false,
+					defaultClassName = JavaIdentifier.javaIdentifierFromString(getOwnerItem().getName(), true, false,
 							"Composer");
 					sb.newline();
 					sb.newline().append("/**");
@@ -141,10 +141,10 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 			}
 
 			if ("composers".equals(kind)) {
-				final boolean extendsClass = mustBeExtended() || isExtendsClass(getItem());
+				final boolean extendsClass = mustBeExtended() || isExtendsClass(getOwnerItem());
 
 				if (extendsClass) {
-					defaultClassName = JavaIdentifier.javaIdentifierFromString(getItem().getName(), true, false,
+					defaultClassName = JavaIdentifier.javaIdentifierFromString(getOwnerItem().getName(), true, false,
 							"Composer");
 				}
 
@@ -160,7 +160,7 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 		protected void generateCallArguments(final GenStringBuilder sb, final Set<String> imports,
 				final GenContext context) {
 
-			sb.appendStringValue(getItem().getName()).append(", ");
+			sb.appendStringValue(getOwnerItem().getName()).append(", ");
 
 			super.generateCallArguments(sb, imports, context);
 		}
@@ -187,7 +187,7 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 		}
 
 		private void generateAcceptsMethod(final GenStringBuilder sb, final Set<String> imports) {
-			final Collection<Item> acceptLinkTypes = getItem().getOutgoingItems(
+			final Collection<Item> acceptLinkTypes = getOwnerItem().getOutgoingItems(
 					CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, true);
 
 			if (acceptLinkTypes.size() == 0) {
@@ -236,12 +236,12 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 			sb.newline();
 
 			// Generate evaluation of folder path attribute value expresion
-			String value = getItem().getAttribute(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER);
+			String value = getOwnerItem().getAttribute(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_);
 			if (value == null || value.length() == 0) {
 				value = "";
 			}
 
-			final Item compositeItem = getItem().getPartParent();
+			final Item compositeItem = getOwnerItem().getPartParent();
 			final Item itemtype = CompositeItemTypeManager.getItemType(compositeItem);
 			final ParseTemplate pt = new ParseTemplate(itemtype, value, null);
 			try {
@@ -310,8 +310,6 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	@Override
 	public ContentItem createContentItem(UUID id) throws CadseException {
 		MyContentItem cm = new MyContentItem(id);
-		cm.setComposers();
-		cm.setExporters();
 		return cm;
 	}
 
