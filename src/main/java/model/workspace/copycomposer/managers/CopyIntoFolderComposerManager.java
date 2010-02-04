@@ -37,6 +37,7 @@ import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
+import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
 
 /**
  * @generated
