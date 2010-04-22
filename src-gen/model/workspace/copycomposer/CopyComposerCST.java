@@ -1,6 +1,7 @@
 package model.workspace.copycomposer;
 
 
+import fr.imag.adele.cadse.core.ExtendedType;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.attribute.BooleanAttributeType;
@@ -16,6 +17,10 @@ public class CopyComposerCST {
 	    @generated
 	*/
 	public static ItemType COPY_INTO_FOLDER_COMPOSER;
+	/**
+	    @generated
+	*/
+	public static LinkType COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS;
 	/**
 	    @generated
 	*/
@@ -35,6 +40,10 @@ public class CopyComposerCST {
 	/**
 	    @generated
 	*/
+	public static LinkType FILE_REF_EXPORTER_lt_CONTENTS;
+	/**
+	    @generated
+	*/
 	public final static String FILE_REF_EXPORTER_at_EXPORTED_FOLDER="exportedFolder";
 	/**
 	    @generated
@@ -44,6 +53,10 @@ public class CopyComposerCST {
 	    @generated
 	*/
 	public static ItemType JAVA_REF_COMPOSER;
+	/**
+	    @generated
+	*/
+	public static LinkType JAVA_REF_COMPOSER_lt_CONTENTS;
 	/**
 	    @generated
 	*/
@@ -88,6 +101,10 @@ public class CopyComposerCST {
 	    @generated
 	*/
 	public static ItemType JAVA_REF_EXPORTER;
+	/**
+	    @generated
+	*/
+	public static LinkType JAVA_REF_EXPORTER_lt_CONTENTS;
 
 	/**
 	    @generated

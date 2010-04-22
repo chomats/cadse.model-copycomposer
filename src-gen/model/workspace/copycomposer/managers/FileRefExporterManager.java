@@ -18,6 +18,7 @@
  */
 package model.workspace.copycomposer.managers;
 
+import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.List;
 import java.util.Set;
 
@@ -32,9 +33,15 @@ import fr.imag.adele.cadse.cadseg.managers.dataModel.ItemTypeManager;
 import fr.imag.adele.cadse.core.CadseException;
 import java.util.UUID;
 import fr.imag.adele.cadse.core.content.ContentItem;
+import fr.imag.adele.cadse.core.util.Convert;
+import fr.imag.adele.cadse.core.var.ContextVariable;
+import fr.imag.adele.cadse.core.var.Variable;
+import java.lang.String;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
+import fr.imag.adele.cadse.core.ItemType;
+import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
 
 /**
@@ -43,59 +50,17 @@ import fr.imag.adele.cadse.core.LinkType;
 public class FileRefExporterManager extends ExporterManager {
 
 	/**
-	 * @generated
-	 */
-	public FileRefExporterManager() {
-		super();
-	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
-		StringBuilder sb = new StringBuilder();
-		try {
-			Object value;
-			sb.append(parent.getQualifiedName());
-			if (sb.length() != 0) {
-				sb.append(".");
-			}
-			sb.append(shortName);
-			return sb.toString();
-		} catch (Throwable e) {
-			e.printStackTrace();
-			return "error";
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	public String getDisplayName(final Item item) {
-		try {
-			Object value;
-			Item currentItem;
-			return item.getName();
-		} catch (Throwable e) {
-			e.printStackTrace();
-			return "error";
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public class MyContentItem extends ExporterManager.ExporterContent {
+		@generated
+	*/
+	public class FileRefExporterContent extends ExporterManager.ExporterContent {
 
 		/**
-		 * @generated
-		 */
-		public MyContentItem(UUID id) throws CadseException {
+			@generated
+		*/
+		public FileRefExporterContent(UUID id) throws CadseException {
 			super(id);
 		}
-
+		
 		@Override
 		protected void generateConstrustorArguments(final GenStringBuilder sb) {
 			sb.append("contentManager,null,null,exportTypes");
@@ -269,6 +234,54 @@ public class FileRefExporterManager extends ExporterManager {
 
 			super.generateCallArguments(sb, imports, context);
 		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	public FileRefExporterManager() {
+		super();
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public String computeQualifiedName(final Item item, final String name, final Item parent, final LinkType lt) {
+		StringBuilder sb = new StringBuilder();
+		try {
+			Object value;
+			Item currentItem;
+			if (parent != null) {
+				sb.append(parent.getQualifiedName());
+			}
+			if (sb.length() != 0) {
+				sb.append(".");
+			}
+			sb.append(name);
+			return sb.toString();
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return "error";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public String getDisplayName(final Item item) {
+		try {
+			Object value;
+			if (item != null) {
+				return item.getName();
+			}
+			return "";
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return "error";
+		}
 	}
 
 	/**
@@ -282,8 +295,14 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
-		MyContentItem cm = new MyContentItem(id);
+	public ContentItem createContentItem(UUID id, Item owerItem) throws CadseException {
+		FileRefExporterContent cm = new FileRefExporterContent(
+			id
+			);
+		owerItem.setComposers(
+		);
+		owerItem.setExporters(
+		);
 		return cm;
 	}
 	
@@ -291,8 +310,7 @@ public class FileRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	public static final String getExportedFolderAttribute(final Item fileRefExporter) {
-		return fileRefExporter.getAttributeWithDefaultValue(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER_,
-				"null");
+		return fileRefExporter.getAttributeWithDefaultValue(CopyComposerCST.FILE_REF_EXPORTER_at_EXPORTED_FOLDER_, null);
 	}
 
 	/**
@@ -304,6 +322,38 @@ public class FileRefExporterManager extends ExporterManager {
 		} catch (Throwable t) {
 
 		}
+	}
+
+	/**
+		get a link 'contents' from 'FileRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Link getContentsLink(Item fileRefExporter) {
+		return fileRefExporter.getOutgoingLink(CopyComposerCST.FILE_REF_EXPORTER_lt_CONTENTS);
+	}
+
+	/**
+		get all link destination 'contents' from 'FileRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContentsAll(Item fileRefExporter) {
+		return fileRefExporter.getOutgoingItem(CopyComposerCST.FILE_REF_EXPORTER_lt_CONTENTS, false);
+	}
+
+	/**
+		get resolved link destination 'contents' from 'FileRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContents(Item fileRefExporter) {
+		return fileRefExporter.getOutgoingItem(CopyComposerCST.FILE_REF_EXPORTER_lt_CONTENTS, true);
+	}
+
+	/**
+		set a link 'contents' from 'FileRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public void setContents(Item fileRefExporter, Item value) throws CadseException {
+		fileRefExporter.setOutgoingItem(CopyComposerCST.FILE_REF_EXPORTER_lt_CONTENTS,value);
 	}
 
 	@SuppressWarnings("hiding")

@@ -18,6 +18,7 @@
  */
 package model.workspace.copycomposer.managers;
 
+import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.List;
 import java.util.Set;
 
@@ -30,8 +31,12 @@ import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
+import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.util.Convert;
+import fr.imag.adele.cadse.core.var.ContextVariable;
+import fr.imag.adele.cadse.core.var.Variable;
+import java.lang.String;
 
 /**
  * @generated
@@ -49,14 +54,14 @@ public class JavaRefComposerManager extends ComposerManager {
 	// private static final String FOLDER_CLASSES_ATTRIBUTE = "folder-classes";
 
 	/**
-	 * @generated
-	 */
-	public class MyContentItem extends ComposerManager.ComposerContent {
+		@generated
+	*/
+	public class JavaRefComposerContent extends ComposerManager.ComposerContent {
 
 		/**
-		 * @generated
-		 */
-		public MyContentItem(UUID id) throws CadseException {
+			@generated
+		*/
+		public JavaRefComposerContent(UUID id) throws CadseException {
 			super(id);
 		}
 
@@ -134,15 +139,18 @@ public class JavaRefComposerManager extends ComposerManager {
 	 * @generated
 	 */
 	@Override
-	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
+	public String computeQualifiedName(final Item item, final String name, final Item parent, final LinkType lt) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Object value;
-			sb.append(parent.getQualifiedName());
+			Item currentItem;
+			if (parent != null) {
+				sb.append(parent.getQualifiedName());
+			}
 			if (sb.length() != 0) {
 				sb.append(".");
 			}
-			sb.append(shortName);
+			sb.append(name);
 			return sb.toString();
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -157,8 +165,10 @@ public class JavaRefComposerManager extends ComposerManager {
 	public String getDisplayName(final Item item) {
 		try {
 			Object value;
-			Item currentItem;
-			return item.getName();
+			if (item != null) {
+				return item.getName();
+			}
+			return "";
 		} catch (Throwable e) {
 			e.printStackTrace();
 			return "error";
@@ -183,7 +193,7 @@ public class JavaRefComposerManager extends ComposerManager {
 	
 	@Override
 	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
-		return new MyContentItem(id);
+		return new JavaRefComposerContent(id);
 	}
 
 	/**
@@ -244,7 +254,7 @@ public class JavaRefComposerManager extends ComposerManager {
 	 * @generated
 	 */
 	public static final String getFolderSourcesAttribute(final Item javaRefComposer) {
-		return javaRefComposer.getAttributeWithDefaultValue(CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_SOURCES_, "null");
+		return javaRefComposer.getAttributeWithDefaultValue(CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_SOURCES_, null);
 	}
 
 	/**
@@ -262,7 +272,7 @@ public class JavaRefComposerManager extends ComposerManager {
 	 * @generated
 	 */
 	public static final String getFolderClassesAttribute(final Item javaRefComposer) {
-		return javaRefComposer.getAttributeWithDefaultValue(CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_CLASSES_, "null");
+		return javaRefComposer.getAttributeWithDefaultValue(CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_CLASSES_, null);
 	}
 
 	/**
@@ -274,6 +284,38 @@ public class JavaRefComposerManager extends ComposerManager {
 		} catch (Throwable t) {
 
 		}
+	}
+
+	/**
+		get a link 'contents' from 'JavaRefComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Link getContentsLink(Item javaRefComposer) {
+		return javaRefComposer.getOutgoingLink(CopyComposerCST.JAVA_REF_COMPOSER_lt_CONTENTS);
+	}
+
+	/**
+		get all link destination 'contents' from 'JavaRefComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContentsAll(Item javaRefComposer) {
+		return javaRefComposer.getOutgoingItem(CopyComposerCST.JAVA_REF_COMPOSER_lt_CONTENTS, false);
+	}
+
+	/**
+		get resolved link destination 'contents' from 'JavaRefComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContents(Item javaRefComposer) {
+		return javaRefComposer.getOutgoingItem(CopyComposerCST.JAVA_REF_COMPOSER_lt_CONTENTS, true);
+	}
+
+	/**
+		set a link 'contents' from 'JavaRefComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public void setContents(Item javaRefComposer, Item value) throws CadseException {
+		javaRefComposer.setOutgoingItem(CopyComposerCST.JAVA_REF_COMPOSER_lt_CONTENTS,value);
 	}
 
 	@Override
