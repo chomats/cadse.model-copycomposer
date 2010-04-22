@@ -18,6 +18,7 @@
  */
 package model.workspace.copycomposer.managers;
 
+import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -32,9 +33,14 @@ import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager
 import fr.imag.adele.cadse.core.CadseException;
 import java.util.UUID;
 import fr.imag.adele.cadse.core.content.ContentItem;
+import fr.imag.adele.cadse.core.util.Convert;
+import fr.imag.adele.cadse.core.var.ContextVariable;
+import fr.imag.adele.cadse.core.var.Variable;
+import java.lang.String;
 import fr.imag.adele.cadse.core.GenContext;
 import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
+import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
@@ -45,14 +51,14 @@ import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager
 public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 
 	/**
-	 * @generated
-	 */
-	public class MyContentItem extends ComposerManager.ComposerContent {
+		@generated
+	*/
+	public class CopyIntoFolderComposerContent extends ComposerManager.ComposerContent {
 
 		/**
-		 * @generated
-		 */
-		public MyContentItem(UUID id) throws CadseException {
+			@generated
+		*/
+		public CopyIntoFolderComposerContent(UUID id) throws CadseException {
 			super(id);
 		}
 
@@ -272,15 +278,18 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	 * @generated
 	 */
 	@Override
-	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
+	public String computeQualifiedName(final Item item, final String name, final Item parent, final LinkType lt) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Object value;
-			sb.append(parent.getQualifiedName());
+			Item currentItem;
+			if (parent != null) {
+				sb.append(parent.getQualifiedName());
+			}
 			if (sb.length() != 0) {
 				sb.append(".");
 			}
-			sb.append(shortName);
+			sb.append(name);
 			return sb.toString();
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -295,8 +304,10 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	public String getDisplayName(final Item item) {
 		try {
 			Object value;
-			Item currentItem;
-			return item.getName();
+			if (item != null) {
+				return item.getName();
+			}
+			return "";
 		} catch (Throwable e) {
 			e.printStackTrace();
 			return "error";
@@ -309,8 +320,14 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	 * @generated
 	 */
 	@Override
-	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
-		MyContentItem cm = new MyContentItem(id);
+	public ContentItem createContentItem(UUID id, Item owerItem) throws CadseException {
+		CopyIntoFolderComposerContent cm = new CopyIntoFolderComposerContent(
+			id
+			);
+		owerItem.setComposers(
+		);
+		owerItem.setExporters(
+		);
 		return cm;
 	}
 
@@ -366,8 +383,7 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	 * @generated
 	 */
 	public static final String getTargetFolderAttribute(final Item copyIntoFolderComposer) {
-		return copyIntoFolderComposer.getAttributeWithDefaultValue(
-				CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_, "null");
+		return copyIntoFolderComposer.getAttributeWithDefaultValue(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_, null);
 	}
 
 	/**
@@ -387,34 +403,66 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 	 * @generated
 	 */
 	static public List<Link> getManagesLTLink(final Item copyIntoFolderComposer) {
-		return copyIntoFolderComposer.getOutgoingLinks(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT);
-	}
+        return copyIntoFolderComposer.getOutgoingLinks(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT);
+    }
 
 	/**
 	 * @generated
 	 */
 	static public Collection<Item> getManagesLTAll(final Item copyIntoFolderComposer) {
-		return copyIntoFolderComposer.getOutgoingItems(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, false);
-	}
+        return copyIntoFolderComposer.getOutgoingItems(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, false);
+    }
 
 	/**
 	 * @generated
 	 */
 	static public Collection<Item> getManagesLT(final Item copyIntoFolderComposer) {
-		return copyIntoFolderComposer.getOutgoingItems(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, true);
-	}
+        return copyIntoFolderComposer.getOutgoingItems(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT,true);
+    }
 
 	/**
 	 * @generated
 	 */
 	static public void addManagesLT(final Item copyIntoFolderComposer, final Item value) throws CadseException {
-		copyIntoFolderComposer.addOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, value);
-	}
+        copyIntoFolderComposer.addOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT,value);
+    }
 
 	/**
 	 * @generated
 	 */
 	static public void removeManagesLT(final Item copyIntoFolderComposer, final Item value) throws CadseException {
-		copyIntoFolderComposer.removeOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT, value);
+        copyIntoFolderComposer.removeOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT,value);
+    }
+
+	/**
+		get a link 'contents' from 'CopyIntoFolderComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Link getContentsLink(Item copyIntoFolderComposer) {
+		return copyIntoFolderComposer.getOutgoingLink(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS);
+	}
+
+	/**
+		get all link destination 'contents' from 'CopyIntoFolderComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContentsAll(Item copyIntoFolderComposer) {
+		return copyIntoFolderComposer.getOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS, false);
+	}
+
+	/**
+		get resolved link destination 'contents' from 'CopyIntoFolderComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContents(Item copyIntoFolderComposer) {
+		return copyIntoFolderComposer.getOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS, true);
+	}
+
+	/**
+		set a link 'contents' from 'CopyIntoFolderComposer' to 'ContentItem'.
+		@generated
+	*/
+	static public void setContents(Item copyIntoFolderComposer, Item value) throws CadseException {
+		copyIntoFolderComposer.setOutgoingItem(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS,value);
 	}
 }

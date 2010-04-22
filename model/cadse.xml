@@ -1,44 +1,264 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:c-cadse display-name="CopyComposer" description="A set of composers and exporters to be used with CADSEg." cst-class="model.workspace.copycomposer.CopyComposerCST" version="0" id_cadse_definition="de0860bc-55f9-405a-8398-1f49f5274350" id="ed66d226-9000-4ad1-8c17-8226489383ef" name="Model.Workspace.CopyComposer" xmlns:ns2="http://fr.imag.adele/fede/workspace/model">
-    <cadse-ref id_cadse_definition="0dc9a0d0-73ff-4e82-a181-1b6792d49e75" id="2b50360d-d835-4e98-80a8-bc55fe5421e7" name="Model.Workspace.CadseG"/>
-    <item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}" icon="platform:/plugin/Model.Workspace.CadseG/icons/composer.gif" manager-class="model.workspace.copycomposer.managers.CopyIntoFolderComposerManager" display-name="Copy Folder Content Composer" is-abstract="false" is-root-element="false" intID="0" has-content="true" package-name="" super-type-name="1b4f69bd-25a3-445e-b7d4-d106a72e3596" name="CopyIntoFolderComposer" qualified-name="CopyComposer..CopyIntoFolderComposer" cst-name="COPY_INTO_FOLDER_COMPOSER" id="c7d283b0-66fe-4669-a06b-750a7842619e">
-        <outgoing-link hidden="false" tw-coupled="false" tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" isNatif="false" id="5cdf920f-832e-41c8-a5c5-2091ed6de463" cst-name="COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT" intID="0" destination="ac03a3ca-23d6-4c8d-ba5c-c84cb42ff9ea" isPart="false" isRequire="false" isComposition="false" isAnnotation="false" isAggregation="false" max="-1" min="1" name="managesLT"/>
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="259" id="2b417fb3-ed67-4403-84fe-59946c328b40" cst-name="COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_" min="1" type="string" value="" key="targetFolder" type-name="cfd331c7-821b-4f56-93a3-032b295eb31f"/>
-        <creation-pages>
-            <page titre="Create a new composer to copy folder content" uuid="f9d875b5-a3aa-42e0-9f2b-77055b73b93c" cas="1" class-name="model.workspace.copycomposer.pages.CopyIntoFolderComposerCreationPage1_CreationPage" id="creation-page1"/>
-        </creation-pages>
-        <modification-pages>
-            <page titre="Folder Content Copy Composer" uuid="60953191-e490-4358-bcd4-3735e417f366" cas="3" class-name="model.workspace.copycomposer.pages.CopyIntoFolderComposerModificationPage1_ModificationPage" id="modification-page1"/>
-        </modification-pages>
-    </item-type>
-    <item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}" icon="platform:/plugin/Model.Workspace.CadseG/icons/exporter.gif" manager-class="model.workspace.copycomposer.managers.FileRefExporterManager" display-name="Folder Content Exporter" is-abstract="false" is-root-element="false" intID="0" has-content="true" package-name="" super-type-name="a0263259-0019-4cb8-ab39-411998f4dc98" name="FileRefExporter" qualified-name="CopyComposer..FileRefExporter" cst-name="FILE_REF_EXPORTER" id="2817dbc1-1af6-496d-a4c0-6619cfbd54e8">
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="259" id="1fa1e5cd-26fc-43ec-9715-93d5ced5b5d2" cst-name="FILE_REF_EXPORTER_at_EXPORTED_FOLDER_" min="1" type="string" value="" key="exportedFolder" type-name="cfd331c7-821b-4f56-93a3-032b295eb31f"/>
-        <creation-pages>
-            <page titre="Create a new folder content exporter" uuid="f81bd043-eac1-4972-9866-86edb2934f93" cas="1" class-name="model.workspace.copycomposer.pages.FileRefExporterCreationPage1_CreationPage" id="creation-page1"/>
-        </creation-pages>
-        <modification-pages>
-            <page titre="Folder Content Exporter" uuid="11613f3e-9710-413e-9f0f-d61db8eddd3e" cas="3" class-name="model.workspace.copycomposer.pages.FileRefExporterModificationPage1_ModificationPage" id="modification-page1"/>
-        </modification-pages>
-    </item-type>
-    <item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}" icon="platform:/plugin/Model.Workspace.CadseG/icons/composer.gif" manager-class="model.workspace.copycomposer.managers.JavaRefComposerManager" display-name="Java Content Copy Composer" is-abstract="false" is-root-element="false" intID="0" has-content="true" package-name="" super-type-name="4920489a-4022-4607-8867-6427abb0599f" name="JavaRefComposer" qualified-name="CopyComposer..JavaRefComposer" cst-name="JAVA_REF_COMPOSER" id="6b397675-3273-4446-aaa2-ae96530b5338">
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="1" id="0bdfb839-e98f-4681-8b8d-47300ce420c4" cst-name="JAVA_REF_COMPOSER_at_FOLDER_CLASSES_" min="0" type="string" value="" key="folder-classes" type-name="cfd331c7-821b-4f56-93a3-032b295eb31f"/>
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="1" id="740b5755-32d9-4716-8889-8323a049c6a0" cst-name="JAVA_REF_COMPOSER_at_FOLDER_SOURCES_" min="0" type="string" value="" key="folder-sources" type-name="cfd331c7-821b-4f56-93a3-032b295eb31f"/>
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="1" id="8a33ab96-bf6e-4887-a2ac-93e32e028a7e" cst-name="JAVA_REF_COMPOSER_at_HAS_ASPECT_" min="0" type="boolean" value="" key="has-aspect" type-name="336d08df-329d-4600-a106-3fbed65c4c18"/>
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="1" id="966c1aee-6a16-4492-bc92-a17504799275" cst-name="JAVA_REF_COMPOSER_at_HAS_CLASSES_" min="0" type="boolean" value="true" key="has-classes" type-name="336d08df-329d-4600-a106-3fbed65c4c18"/>
-        <attribute-type tw-rev-specific="true" tw-commit="conflict" tw-update="merge" tw-evolution="immutable" flag="1" id="0caa38c7-6611-44d7-9c9b-59e8e3394b90" cst-name="JAVA_REF_COMPOSER_at_HAS_SOURCES_" min="0" type="boolean" value="false" key="has-sources" type-name="336d08df-329d-4600-a106-3fbed65c4c18"/>
-        <creation-pages main-action-class="model.workspace.copycomposer.pages.actions.JavaRefComposer_CreationPagesAction">
-            <page titre="Create a new composer to copy Java content" uuid="de7b5110-fc4d-4fec-8966-af321f7278d7" cas="1" class-name="model.workspace.copycomposer.pages.JavaRefComposerCreationPage1_CreationPage" id="creation-page1"/>
-        </creation-pages>
-        <modification-pages>
-            <page titre="Java Content Composer" uuid="f69fc438-1f08-4ee5-8687-9f0b440b9620" cas="3" class-name="model.workspace.copycomposer.pages.JavaRefComposerModificationPage1_ModificationPage" id="modification-page1"/>
-        </modification-pages>
-    </item-type>
-    <item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}" icon="platform:/plugin/Model.Workspace.CadseG/icons/exporter.gif" manager-class="model.workspace.copycomposer.managers.JavaRefExporterManager" display-name="Java Content Exporter" is-abstract="false" is-root-element="false" intID="0" has-content="true" package-name="" super-type-name="a0263259-0019-4cb8-ab39-411998f4dc98" name="JavaRefExporter" qualified-name="CopyComposer..JavaRefExporter" cst-name="JAVA_REF_EXPORTER" id="c575fb0a-1a18-4abe-af3c-0af54978f842">
-        <creation-pages default-short-name="JavaContentExporter">
-            <page titre="Create a new Java content exporter" uuid="96d2092b-d284-4fd4-9ac9-05d8386d1ec7" cas="1" class-name="model.workspace.copycomposer.pages.JavaRefExporterCreationPage1_CreationPage" id="creation-page1"/>
-        </creation-pages>
-        <modification-pages>
-            <page titre="Java Content Exporter" uuid="2a1bb4b8-5163-4eec-8dad-72c1531297fc" cas="3" class-name="model.workspace.copycomposer.pages.JavaRefExporterModificationPage1_ModificationPage" id="modification-page1"/>
-        </modification-pages>
-    </item-type>
+<ns2:c-cadse display-name="CopyComposer"
+	description="A set of composers and exporters to be used with CADSEg."
+	cst-class="model.workspace.copycomposer.CopyComposerCST" version="0"
+	id_cadse_definition="de0860bc-55f9-405a-8398-1f49f5274350" id="ed66d226-9000-4ad1-8c17-8226489383ef"
+	name="Model.Workspace.CopyComposer" xmlns:ns2="http://fr.imag.adele/fede/workspace/model">
+	<cadse-ref id_cadse_definition="0dc9a0d0-73ff-4e82-a181-1b6792d49e75"
+		id="2b50360d-d835-4e98-80a8-bc55fe5421e7" name="Model.Workspace.CadseG" />
+	<item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}"
+		icon="platform:/plugin/Model.Workspace.CadseG/icons/composer.gif"
+		manager-class="model.workspace.copycomposer.managers.CopyIntoFolderComposerManager"
+		display-name="Copy Folder Content Composer" is-abstract="false"
+		is-root-element="false" intID="0" has-content="true" package-name=""
+		super-type-name="1b4f69bd-25a3-445e-b7d4-d106a72e3596" name="CopyIntoFolderComposer"
+		qualified-name="CopyComposer..CopyIntoFolderComposer" cst-name="COPY_INTO_FOLDER_COMPOSER"
+		id="c7d283b0-66fe-4669-a06b-750a7842619e">
+		<link destinationId="e7112623-0d11-4d0e-a58f-0ce1454e333c" key="content-model"
+			is-readonly="true" is-hidden="true" type="ce515bf1-2058-4948-8ae4-66abdaafa92e" />
+		<outgoing-link flag="1" hidden="false" tw-coupled="false"
+			tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" isNatif="false"
+			cst-name="COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS" intID="1"
+			destination="d1410142-ce9a-4ac8-b733-284378daaeb5" isPart="false"
+			isMapping="false" isRequire="false" isGroup="false" isComposition="false"
+			isAnnotation="false" isAggregation="true" max="1" min="0" name="contents"
+			type="bc20e834-0814-4422-a373-5f4b01f7732e" id="ba300968-aace-42a9-bdac-41d3d342536a">
+			<link destinationId="e7112623-0d11-4d0e-a58f-0ce1454e333c" key="content-definition"
+				is-readonly="true" is-hidden="true" type="0d577beb-75f3-4c85-a15f-2cb7fd712caa" />
+		</outgoing-link>
+		<outgoing-link flag="0" hidden="false" tw-coupled="false"
+			tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" isNatif="false"
+			cst-name="COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT"
+			intID="0" destination="ac03a3ca-23d6-4c8d-ba5c-c84cb42ff9ea" isPart="false"
+			isMapping="false" isRequire="false" isGroup="false" isComposition="false"
+			isAnnotation="false" isAggregation="false" max="-1" min="1" name="managesLT"
+			type="ac03a3ca-23d6-4c8d-ba5c-c84cb42ff9ea" id="5cdf920f-832e-41c8-a5c5-2091ed6de463" />
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="259"
+			id="2b417fb3-ed67-4403-84fe-59946c328b40" cst-name="COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_"
+			min="1" type="string" value="" key="targetFolder"
+			type-name="b510d24e-a9d5-4a3a-b851-16c209276867" />
+	</item-type>
+	<item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}"
+		icon="platform:/plugin/Model.Workspace.CadseG/icons/exporter.gif"
+		manager-class="model.workspace.copycomposer.managers.FileRefExporterManager"
+		display-name="Folder Content Exporter" is-abstract="false"
+		is-root-element="false" intID="0" has-content="true" package-name=""
+		super-type-name="a0263259-0019-4cb8-ab39-411998f4dc98" name="FileRefExporter"
+		qualified-name="CopyComposer..FileRefExporter" cst-name="FILE_REF_EXPORTER"
+		id="2817dbc1-1af6-496d-a4c0-6619cfbd54e8">
+		<link destinationId="390ef551-e113-4322-b293-dc9d7d9c5271" key="content-model"
+			is-readonly="true" is-hidden="true" type="ce515bf1-2058-4948-8ae4-66abdaafa92e" />
+		<outgoing-link flag="1" hidden="false" tw-coupled="false"
+			tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" isNatif="false"
+			cst-name="FILE_REF_EXPORTER_lt_CONTENTS" intID="4"
+			destination="d1410142-ce9a-4ac8-b733-284378daaeb5" isPart="false"
+			isMapping="false" isRequire="false" isGroup="false" isComposition="false"
+			isAnnotation="false" isAggregation="true" max="1" min="0" name="contents"
+			type="bc20e834-0814-4422-a373-5f4b01f7732e" id="41eeb01b-c8c2-4d2f-9024-fd2a18599efc">
+			<link destinationId="390ef551-e113-4322-b293-dc9d7d9c5271" key="content-definition"
+				is-readonly="true" is-hidden="true" type="0d577beb-75f3-4c85-a15f-2cb7fd712caa" />
+		</outgoing-link>
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="259"
+			id="1fa1e5cd-26fc-43ec-9715-93d5ced5b5d2" cst-name="FILE_REF_EXPORTER_at_EXPORTED_FOLDER_"
+			min="1" type="string" value="" key="exportedFolder"
+			type-name="b510d24e-a9d5-4a3a-b851-16c209276867" />
+	</item-type>
+	<item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}"
+		icon="platform:/plugin/Model.Workspace.CadseG/icons/composer.gif"
+		manager-class="model.workspace.copycomposer.managers.JavaRefComposerManager"
+		display-name="Java Content Copy Composer" is-abstract="false"
+		is-root-element="false" intID="0" has-content="true" package-name=""
+		super-type-name="4920489a-4022-4607-8867-6427abb0599f" name="JavaRefComposer"
+		qualified-name="CopyComposer..JavaRefComposer" cst-name="JAVA_REF_COMPOSER"
+		id="6b397675-3273-4446-aaa2-ae96530b5338">
+		<link destinationId="335f9f79-b4d6-4779-9042-bba2d208ea2f" key="content-model"
+			is-readonly="true" is-hidden="true" type="ce515bf1-2058-4948-8ae4-66abdaafa92e" />
+		<outgoing-link flag="1" hidden="false" tw-coupled="false"
+			tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" isNatif="false"
+			cst-name="JAVA_REF_COMPOSER_lt_CONTENTS" intID="6"
+			destination="d1410142-ce9a-4ac8-b733-284378daaeb5" isPart="false"
+			isMapping="false" isRequire="false" isGroup="false" isComposition="false"
+			isAnnotation="false" isAggregation="true" max="1" min="0" name="contents"
+			type="bc20e834-0814-4422-a373-5f4b01f7732e" id="f71f5d9b-5553-46f6-a096-2db64610d638">
+			<link destinationId="335f9f79-b4d6-4779-9042-bba2d208ea2f" key="content-definition"
+				is-readonly="true" is-hidden="true" type="0d577beb-75f3-4c85-a15f-2cb7fd712caa" />
+		</outgoing-link>
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="1"
+			id="0bdfb839-e98f-4681-8b8d-47300ce420c4" cst-name="JAVA_REF_COMPOSER_at_FOLDER_CLASSES_"
+			min="0" type="string" value="" key="folder-classes"
+			type-name="b510d24e-a9d5-4a3a-b851-16c209276867" />
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="1"
+			id="740b5755-32d9-4716-8889-8323a049c6a0" cst-name="JAVA_REF_COMPOSER_at_FOLDER_SOURCES_"
+			min="0" type="string" value="" key="folder-sources"
+			type-name="b510d24e-a9d5-4a3a-b851-16c209276867" />
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="1"
+			id="8a33ab96-bf6e-4887-a2ac-93e32e028a7e" cst-name="JAVA_REF_COMPOSER_at_HAS_ASPECT_"
+			min="0" type="boolean" value="" key="has-aspect"
+			type-name="c1a53869-ea0c-4c3c-a550-f14a08fecf8a" />
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="1"
+			id="966c1aee-6a16-4492-bc92-a17504799275" cst-name="JAVA_REF_COMPOSER_at_HAS_CLASSES_"
+			min="0" type="boolean" value="true" key="has-classes"
+			type-name="c1a53869-ea0c-4c3c-a550-f14a08fecf8a" />
+		<attribute-type tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" flag="1"
+			id="0caa38c7-6611-44d7-9c9b-59e8e3394b90" cst-name="JAVA_REF_COMPOSER_at_HAS_SOURCES_"
+			min="0" type="boolean" value="false" key="has-sources"
+			type-name="c1a53869-ea0c-4c3c-a550-f14a08fecf8a" />
+	</item-type>
+	<item-type hidden="false" pattern-id="${#parent-unique-name}{.}${#short-name}"
+		icon="platform:/plugin/Model.Workspace.CadseG/icons/exporter.gif"
+		manager-class="model.workspace.copycomposer.managers.JavaRefExporterManager"
+		display-name="Java Content Exporter" is-abstract="false"
+		is-root-element="false" intID="0" has-content="true" package-name=""
+		super-type-name="a0263259-0019-4cb8-ab39-411998f4dc98" name="JavaRefExporter"
+		qualified-name="CopyComposer..JavaRefExporter" cst-name="JAVA_REF_EXPORTER"
+		id="c575fb0a-1a18-4abe-af3c-0af54978f842">
+		<link destinationId="34aa2db1-492b-4271-a175-3f5ea9e5f3f4" key="content-model"
+			is-readonly="true" is-hidden="true" type="ce515bf1-2058-4948-8ae4-66abdaafa92e" />
+		<outgoing-link flag="1" hidden="false" tw-coupled="false"
+			tw-evol-destination="immutable" tw-rev-specific="true" tw-commit="conflict"
+			tw-update="merge" tw-evolution="immutable" isNatif="false"
+			cst-name="JAVA_REF_EXPORTER_lt_CONTENTS" intID="8"
+			destination="d1410142-ce9a-4ac8-b733-284378daaeb5" isPart="false"
+			isMapping="false" isRequire="false" isGroup="false" isComposition="false"
+			isAnnotation="false" isAggregation="true" max="1" min="0" name="contents"
+			type="bc20e834-0814-4422-a373-5f4b01f7732e" id="71c5b49a-4092-4c58-971c-20dc4a4df158">
+			<link destinationId="34aa2db1-492b-4271-a175-3f5ea9e5f3f4" key="content-definition"
+				is-readonly="true" is-hidden="true" type="0d577beb-75f3-4c85-a15f-2cb7fd712caa" />
+		</outgoing-link>
+	</item-type>
+	<item type="61f4e737-ccdb-476d-af2e-619155047b89" id="e7112623-0d11-4d0e-a58f-0ce1454e333c">
+		<attributes-value tw-rev-specific="false"
+			id="4edf0fd3-7f01-4369-aa3d-160dbb146253" value="0" key="TW-version" />
+		<attributes-value tw-rev-specific="false"
+			id="bf1e2cee-0b3c-4e0f-9ca2-0187120d4670" value="0" key="committedDate" />
+		<attributes-value tw-rev-specific="false"
+			id="19e28d40-fd2b-4f20-a05a-10f85281bdfb" value="SubContentModel"
+			key="display-name" />
+		<attributes-value tw-rev-specific="false"
+			id="c4422d27-4833-4920-acc9-9cd33738e6bb" value="false" key="isvalid" />
+		<attributes-value tw-rev-specific="false"
+			id="b2a2bf63-0c55-4e33-84c7-6eb222ba8dd2" value="false" key="item-hidden" />
+		<attributes-value tw-rev-specific="false"
+			id="f8dd1f73-f672-4277-b68b-c56d9aebc504" value="false" key="item-readonly" />
+		<attributes-value tw-rev-specific="false"
+			id="ae262046-3821-4b01-b6ce-0e533692a40b" value="SubContentModel"
+			key="name" />
+		<attributes-value tw-rev-specific="false"
+			id="c84eb0f9-305d-440a-a295-32ffa683e797"
+			value="Model.Workspace.CopyComposer.mapping.CopyIntoFolderComposer-manager.SubContentModel"
+			key="qualified-name" />
+		<attributes-value tw-rev-specific="false"
+			id="20e185b9-5f65-4def-9e22-6df614090aa5" value="true" key="requireNewRev" />
+		<attributes-value tw-rev-specific="false"
+			id="d674931c-a818-41b3-8dda-62cce15c4ef5" value="false" key="revModified" />
+		<attributes-value tw-rev-specific="false"
+			id="277a1cf2-ff5a-4835-a2b8-b13ec987e8de" value="true" key="extends-class" />
+		<attributes-value tw-rev-specific="false"
+			id="06746286-74c3-4edf-895d-197c8c9e05dd" value="e7112623-0d11-4d0e-a58f-0ce1454e333c"
+			key="id-runtime" />
+	</item>
+	<item type="61f4e737-ccdb-476d-af2e-619155047b89" id="390ef551-e113-4322-b293-dc9d7d9c5271">
+		<attributes-value tw-rev-specific="false"
+			id="4edf0fd3-7f01-4369-aa3d-160dbb146253" value="0" key="TW-version" />
+		<attributes-value tw-rev-specific="false"
+			id="bf1e2cee-0b3c-4e0f-9ca2-0187120d4670" value="0" key="committedDate" />
+		<attributes-value tw-rev-specific="false"
+			id="19e28d40-fd2b-4f20-a05a-10f85281bdfb" value="SubContentModel"
+			key="display-name" />
+		<attributes-value tw-rev-specific="false"
+			id="c4422d27-4833-4920-acc9-9cd33738e6bb" value="false" key="isvalid" />
+		<attributes-value tw-rev-specific="false"
+			id="b2a2bf63-0c55-4e33-84c7-6eb222ba8dd2" value="false" key="item-hidden" />
+		<attributes-value tw-rev-specific="false"
+			id="f8dd1f73-f672-4277-b68b-c56d9aebc504" value="false" key="item-readonly" />
+		<attributes-value tw-rev-specific="false"
+			id="ae262046-3821-4b01-b6ce-0e533692a40b" value="SubContentModel"
+			key="name" />
+		<attributes-value tw-rev-specific="false"
+			id="c84eb0f9-305d-440a-a295-32ffa683e797"
+			value="Model.Workspace.CopyComposer.mapping.FileRefExporter-manager.SubContentModel"
+			key="qualified-name" />
+		<attributes-value tw-rev-specific="false"
+			id="20e185b9-5f65-4def-9e22-6df614090aa5" value="true" key="requireNewRev" />
+		<attributes-value tw-rev-specific="false"
+			id="d674931c-a818-41b3-8dda-62cce15c4ef5" value="false" key="revModified" />
+		<attributes-value tw-rev-specific="false"
+			id="277a1cf2-ff5a-4835-a2b8-b13ec987e8de" value="true" key="extends-class" />
+		<attributes-value tw-rev-specific="false"
+			id="06746286-74c3-4edf-895d-197c8c9e05dd" value="390ef551-e113-4322-b293-dc9d7d9c5271"
+			key="id-runtime" />
+	</item>
+	<item type="61f4e737-ccdb-476d-af2e-619155047b89" id="335f9f79-b4d6-4779-9042-bba2d208ea2f">
+		<attributes-value tw-rev-specific="false"
+			id="4edf0fd3-7f01-4369-aa3d-160dbb146253" value="0" key="TW-version" />
+		<attributes-value tw-rev-specific="false"
+			id="bf1e2cee-0b3c-4e0f-9ca2-0187120d4670" value="0" key="committedDate" />
+		<attributes-value tw-rev-specific="false"
+			id="19e28d40-fd2b-4f20-a05a-10f85281bdfb" value="SubContentModel"
+			key="display-name" />
+		<attributes-value tw-rev-specific="false"
+			id="c4422d27-4833-4920-acc9-9cd33738e6bb" value="false" key="isvalid" />
+		<attributes-value tw-rev-specific="false"
+			id="b2a2bf63-0c55-4e33-84c7-6eb222ba8dd2" value="false" key="item-hidden" />
+		<attributes-value tw-rev-specific="false"
+			id="f8dd1f73-f672-4277-b68b-c56d9aebc504" value="false" key="item-readonly" />
+		<attributes-value tw-rev-specific="false"
+			id="ae262046-3821-4b01-b6ce-0e533692a40b" value="SubContentModel"
+			key="name" />
+		<attributes-value tw-rev-specific="false"
+			id="c84eb0f9-305d-440a-a295-32ffa683e797"
+			value="Model.Workspace.CopyComposer.mapping.JavaRefComposer-manager.SubContentModel"
+			key="qualified-name" />
+		<attributes-value tw-rev-specific="false"
+			id="20e185b9-5f65-4def-9e22-6df614090aa5" value="true" key="requireNewRev" />
+		<attributes-value tw-rev-specific="false"
+			id="d674931c-a818-41b3-8dda-62cce15c4ef5" value="false" key="revModified" />
+		<attributes-value tw-rev-specific="false"
+			id="277a1cf2-ff5a-4835-a2b8-b13ec987e8de" value="true" key="extends-class" />
+		<attributes-value tw-rev-specific="false"
+			id="06746286-74c3-4edf-895d-197c8c9e05dd" value="335f9f79-b4d6-4779-9042-bba2d208ea2f"
+			key="id-runtime" />
+	</item>
+	<item type="61f4e737-ccdb-476d-af2e-619155047b89" id="34aa2db1-492b-4271-a175-3f5ea9e5f3f4">
+		<attributes-value tw-rev-specific="false"
+			id="4edf0fd3-7f01-4369-aa3d-160dbb146253" value="0" key="TW-version" />
+		<attributes-value tw-rev-specific="false"
+			id="bf1e2cee-0b3c-4e0f-9ca2-0187120d4670" value="0" key="committedDate" />
+		<attributes-value tw-rev-specific="false"
+			id="19e28d40-fd2b-4f20-a05a-10f85281bdfb" value="SubContentModel"
+			key="display-name" />
+		<attributes-value tw-rev-specific="false"
+			id="c4422d27-4833-4920-acc9-9cd33738e6bb" value="false" key="isvalid" />
+		<attributes-value tw-rev-specific="false"
+			id="b2a2bf63-0c55-4e33-84c7-6eb222ba8dd2" value="false" key="item-hidden" />
+		<attributes-value tw-rev-specific="false"
+			id="f8dd1f73-f672-4277-b68b-c56d9aebc504" value="false" key="item-readonly" />
+		<attributes-value tw-rev-specific="false"
+			id="ae262046-3821-4b01-b6ce-0e533692a40b" value="SubContentModel"
+			key="name" />
+		<attributes-value tw-rev-specific="false"
+			id="c84eb0f9-305d-440a-a295-32ffa683e797"
+			value="Model.Workspace.CopyComposer.mapping.JavaRefExporter-manager.SubContentModel"
+			key="qualified-name" />
+		<attributes-value tw-rev-specific="false"
+			id="20e185b9-5f65-4def-9e22-6df614090aa5" value="true" key="requireNewRev" />
+		<attributes-value tw-rev-specific="false"
+			id="d674931c-a818-41b3-8dda-62cce15c4ef5" value="false" key="revModified" />
+		<attributes-value tw-rev-specific="false"
+			id="277a1cf2-ff5a-4835-a2b8-b13ec987e8de" value="true" key="extends-class" />
+		<attributes-value tw-rev-specific="false"
+			id="06746286-74c3-4edf-895d-197c8c9e05dd" value="34aa2db1-492b-4271-a175-3f5ea9e5f3f4"
+			key="id-runtime" />
+	</item>
 </ns2:c-cadse>

@@ -18,20 +18,47 @@
  */
 package model.workspace.copycomposer.managers;
 
+import fede.workspace.eclipse.content.SubFileContentManager;
 import model.workspace.copycomposer.CopyComposerCST;
 import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.core.CadseException;
 import java.util.UUID;
 import fr.imag.adele.cadse.core.content.ContentItem;
+import fr.imag.adele.cadse.core.var.ContextVariable;
+import fr.imag.adele.cadse.core.var.Variable;
 import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
+import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
 
 /**
  * @generated
  */
 public class JavaRefExporterManager extends ExporterManager {
+
+	/**
+		@generated
+	*/
+	public class JavaRefExporterContent extends ExporterManager.ExporterContent {
+
+		/**
+			@generated
+		*/
+		public JavaRefExporterContent(UUID id) throws CadseException {
+			super(id);
+		}
+
+		@Override
+		protected void generateConstrustorArguments(final GenStringBuilder sb) {
+			sb.append("contentItem");
+		}
+
+		@Override
+		protected void generateConstructorParameter(final GenStringBuilder sb) {
+			sb.append("ContentItem contentItem");
+		}
+	}
 
 	/**
 	 * @generated
@@ -44,15 +71,18 @@ public class JavaRefExporterManager extends ExporterManager {
 	 * @generated
 	 */
 	@Override
-	public String computeQualifiedName(final Item item, final String shortName, final Item parent, final LinkType lt) {
+	public String computeQualifiedName(final Item item, final String name, final Item parent, final LinkType lt) {
 		StringBuilder sb = new StringBuilder();
 		try {
 			Object value;
-			sb.append(parent.getQualifiedName());
+			Item currentItem;
+			if (parent != null) {
+				sb.append(parent.getQualifiedName());
+			}
 			if (sb.length() != 0) {
 				sb.append(".");
 			}
-			sb.append(shortName);
+			sb.append(name);
 			return sb.toString();
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -67,8 +97,10 @@ public class JavaRefExporterManager extends ExporterManager {
 	public String getDisplayName(final Item item) {
 		try {
 			Object value;
-			Item currentItem;
-			return item.getName();
+			if (item != null) {
+				return item.getName();
+			}
+			return "";
 		} catch (Throwable e) {
 			e.printStackTrace();
 			return "error";
@@ -93,34 +125,48 @@ public class JavaRefExporterManager extends ExporterManager {
 	/**
 	 * @generated
 	 */
-	public class MyContentItem extends ExporterManager.ExporterContent {
-
-		/**
-		 * @throws CadseException
-		 * @generated
-		 */
-		public MyContentItem(UUID id) throws CadseException {
-			super(id);
-		}
-
-		@Override
-		protected void generateConstrustorArguments(final GenStringBuilder sb) {
-			sb.append("contentItem");
-		}
-
-		@Override
-		protected void generateConstructorParameter(final GenStringBuilder sb) {
-			sb.append("ContentItem contentItem");
-		}
-
+	@Override
+	public ContentItem createContentItem(UUID id, Item owerItem) throws CadseException {
+		JavaRefExporterContent cm = new JavaRefExporterContent(
+			id
+			);
+		owerItem.setComposers(
+		);
+		owerItem.setExporters(
+		);
+		return cm;
 	}
 
 	/**
-	 * @generated
-	 */
-	@Override
-	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
-		return new MyContentItem(id);
+		get a link 'contents' from 'JavaRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Link getContentsLink(Item javaRefExporter) {
+		return javaRefExporter.getOutgoingLink(CopyComposerCST.JAVA_REF_EXPORTER_lt_CONTENTS);
+	}
+
+	/**
+		get all link destination 'contents' from 'JavaRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContentsAll(Item javaRefExporter) {
+		return javaRefExporter.getOutgoingItem(CopyComposerCST.JAVA_REF_EXPORTER_lt_CONTENTS, false);
+	}
+
+	/**
+		get resolved link destination 'contents' from 'JavaRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public Item getContents(Item javaRefExporter) {
+		return javaRefExporter.getOutgoingItem(CopyComposerCST.JAVA_REF_EXPORTER_lt_CONTENTS, true);
+	}
+
+	/**
+		set a link 'contents' from 'JavaRefExporter' to 'ContentItem'.
+		@generated
+	*/
+	static public void setContents(Item javaRefExporter, Item value) throws CadseException {
+		javaRefExporter.setOutgoingItem(CopyComposerCST.JAVA_REF_EXPORTER_lt_CONTENTS,value);
 	}
 
 	@SuppressWarnings("hiding")
