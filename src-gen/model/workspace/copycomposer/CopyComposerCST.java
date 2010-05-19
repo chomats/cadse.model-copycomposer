@@ -1,7 +1,6 @@
 package model.workspace.copycomposer;
 
 
-import fr.imag.adele.cadse.core.ExtendedType;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.attribute.BooleanAttributeType;
