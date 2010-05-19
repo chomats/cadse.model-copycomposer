@@ -18,15 +18,10 @@
  */
 package model.workspace.copycomposer.managers;
 
-import fede.workspace.eclipse.content.SubFileContentManager;
+
 import model.workspace.copycomposer.CopyComposerCST;
 import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.core.CadseException;
-import java.util.UUID;
-import fr.imag.adele.cadse.core.content.ContentItem;
-import fr.imag.adele.cadse.core.var.ContextVariable;
-import fr.imag.adele.cadse.core.var.Variable;
-import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.Link;
@@ -36,29 +31,6 @@ import fr.imag.adele.cadse.core.LinkType;
  * @generated
  */
 public class JavaRefExporterManager extends ExporterManager {
-
-	/**
-		@generated
-	*/
-	public class JavaRefExporterContent extends ExporterManager.ExporterContent {
-
-		/**
-			@generated
-		*/
-		public JavaRefExporterContent(UUID id) throws CadseException {
-			super(id);
-		}
-
-		@Override
-		protected void generateConstrustorArguments(final GenStringBuilder sb) {
-			sb.append("contentItem");
-		}
-
-		@Override
-		protected void generateConstructorParameter(final GenStringBuilder sb) {
-			sb.append("ContentItem contentItem");
-		}
-	}
 
 	/**
 	 * @generated
@@ -123,21 +95,6 @@ public class JavaRefExporterManager extends ExporterManager {
 	}
 
 	/**
-	 * @generated
-	 */
-	@Override
-	public ContentItem createContentItem(UUID id, Item owerItem) throws CadseException {
-		JavaRefExporterContent cm = new JavaRefExporterContent(
-			id
-			);
-		owerItem.setComposers(
-		);
-		owerItem.setExporters(
-		);
-		return cm;
-	}
-
-	/**
 		get a link 'contents' from 'JavaRefExporter' to 'ContentItem'.
 		@generated
 	*/
@@ -169,16 +126,5 @@ public class JavaRefExporterManager extends ExporterManager {
 		javaRefExporter.setOutgoingItem(CopyComposerCST.JAVA_REF_EXPORTER_lt_CONTENTS,value);
 	}
 
-	@SuppressWarnings("hiding")
-	public static final String	DEFAUL_CLASS_NAME	= "fede.workspace.eclipse.composition.copy.exporter.JavaClassRefExporter";
-
-	@Override
-	public String getDefaultClassName() {
-		return DEFAUL_CLASS_NAME;
-	}
-
-	@Override
-	public boolean mustBeExtended() {
-		return false;
-	}
+	
 }
