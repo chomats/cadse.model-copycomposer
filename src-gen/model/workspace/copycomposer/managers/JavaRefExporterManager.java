@@ -37,28 +37,7 @@ import fr.imag.adele.cadse.core.LinkType;
  */
 public class JavaRefExporterManager extends ExporterManager {
 
-	/**
-		@generated
-	*/
-	public class JavaRefExporterContent extends ExporterManager.ExporterContent {
-
-		/**
-			@generated
-		*/
-		public JavaRefExporterContent(UUID id) throws CadseException {
-			super(id);
-		}
-
-		@Override
-		protected void generateConstrustorArguments(final GenStringBuilder sb) {
-			sb.append("contentItem");
-		}
-
-		@Override
-		protected void generateConstructorParameter(final GenStringBuilder sb) {
-			sb.append("ContentItem contentItem");
-		}
-	}
+	
 
 	/**
 	 * @generated
@@ -121,22 +100,7 @@ public class JavaRefExporterManager extends ExporterManager {
 		
 		return null;
 	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	public ContentItem createContentItem(UUID id, Item owerItem) throws CadseException {
-		JavaRefExporterContent cm = new JavaRefExporterContent(
-			id
-			);
-		owerItem.setComposers(
-		);
-		owerItem.setExporters(
-		);
-		return cm;
-	}
-
+	
 	/**
 		get a link 'contents' from 'JavaRefExporter' to 'ContentItem'.
 		@generated

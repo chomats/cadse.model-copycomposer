@@ -53,84 +53,7 @@ public class JavaRefComposerManager extends ComposerManager {
 	// private static final String FOLDER_SOURCES_ATTRIBUTE = "folder-sources";
 	// private static final String FOLDER_CLASSES_ATTRIBUTE = "folder-classes";
 
-	/**
-		@generated
-	*/
-	public class JavaRefComposerContent extends ComposerManager.ComposerContent {
 
-		/**
-			@generated
-		*/
-		public JavaRefComposerContent(UUID id) throws CadseException {
-			super(id);
-		}
-
-		@Override
-		public void computeImportsPackage(final Set<String> imports) {
-			super.computeImportsPackage(imports);
-
-			imports.add("org.eclipse.core.runtime");
-			final boolean has_sources = hasSources(getOwnerItem());
-			final boolean has_classes = hasClasses(getOwnerItem());
-
-			if (has_classes || has_sources) {
-				imports.add("fede.workspace.eclipse.composition.copy.composer");
-			}
-		}
-
-		@Override
-		public void generate(final GenStringBuilder sb, final String type, final String kind,
-				final Set<String> imports, final GenContext context) {
-
-			final boolean has_sources = hasSources(getOwnerItem());
-			final boolean has_classes = hasClasses(getOwnerItem());
-			final boolean has_aspects = hasAspects(getOwnerItem());
-
-			final String classcomposer = "fede.workspace.eclipse.composition.copy.composer.JavaClassesCopyComposer";
-			String sourcecompser = "fede.workspace.eclipse.composition.copy.composer.JavaSourcesCopyComposer";
-			final String ajsourcecompser = "fede.workspace.eclipse.composition.copy.composer.AspectJSourcesCopyComposer";
-			if ("composers".equals(kind)) {
-
-
-				final String classFolder = getOwnerItem().getAttribute(
-						CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_CLASSES_);
-
-				boolean classFolderSpecified = (classFolder != null && classFolder.length()> 0);
-				
-				final String sourceFolder = getOwnerItem().getAttribute(
-						CopyComposerCST.JAVA_REF_COMPOSER_at_FOLDER_SOURCES_);
-
-				boolean sourceFolderSpecified = (sourceFolder != null || sourceFolder.length() > 0);
-				
-				// @changed
-				if (has_classes) {
-					sb.newline().append("new ").append(classcomposer).append(" (cm");
-					if (classFolderSpecified) {
-						sb.append(",\"").append(classFolder).append("\"");
-						if (sourceFolderSpecified)
-							sb.append(",\"").append(sourceFolder).append("\"");
-					}
-					
-					sb.append("),");
-					imports.add(classcomposer);
-				}
-				if (has_sources) {
-					if (has_aspects) {
-						sourcecompser = ajsourcecompser;
-					}
-
-					sb.newline().append("new ").append(sourcecompser).append(" (cm,").append(!has_classes);
-					if (sourceFolderSpecified){
-						sb.append(",\"").append(sourceFolder).append("\"");
-					}
-					
-					sb.append("),");
-					imports.add(sourcecompser);
-				}
-
-			}
-		}
-	}
 
 	public JavaRefComposerManager() {
 	}
@@ -188,12 +111,6 @@ public class JavaRefComposerManager extends ComposerManager {
 		}
 		
 		return null;
-	}
-
-	
-	@Override
-	public ContentItem createContentItem(UUID id, Item ownerItem) throws CadseException {
-		return new JavaRefComposerContent(id);
 	}
 
 	/**
