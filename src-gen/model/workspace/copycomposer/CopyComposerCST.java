@@ -1,6 +1,8 @@
 package model.workspace.copycomposer;
 
 
+import java.util.UUID;
+
 import fr.imag.adele.cadse.core.ExtendedType;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
@@ -105,6 +107,8 @@ public class CopyComposerCST {
 	    @generated
 	*/
 	public static LinkType JAVA_REF_EXPORTER_lt_CONTENTS;
+
+	public static UUID _CADSE_ID = java.util.UUID.fromString("ed66d226-9000-4ad1-8c17-8226489383ef");
 
 	/**
 	    @generated
