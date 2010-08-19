@@ -60,5 +60,12 @@
 			<artifactId>Model.Workspace.CadseG</artifactId>
 			<version>2.3.3-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>fr.imag.adele.cadse</groupId>
+			<artifactId>CopyComposer.CADSE</artifactId>
+			<version>2.3.2-SNAPSHOT</version>
+			<type>bundle</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 </project>
