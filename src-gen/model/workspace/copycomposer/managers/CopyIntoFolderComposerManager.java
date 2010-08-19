@@ -18,32 +18,20 @@
  */
 package model.workspace.copycomposer.managers;
 
-import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import model.workspace.copycomposer.CopyComposerCST;
-import fede.workspace.eclipse.java.JavaIdentifier;
+import fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer;
 import fr.imag.adele.cadse.cadseg.ParseTemplate;
 import fr.imag.adele.cadse.cadseg.exp.ParseException;
-import fr.imag.adele.cadse.cadseg.managers.build.ComposerManager;
 import fr.imag.adele.cadse.cadseg.managers.build.CompositeItemTypeManager;
 import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
 import fr.imag.adele.cadse.core.CadseException;
-import java.util.UUID;
-import fr.imag.adele.cadse.core.content.ContentItem;
-import fr.imag.adele.cadse.core.util.Convert;
-import fr.imag.adele.cadse.core.var.ContextVariable;
-import fr.imag.adele.cadse.core.var.Variable;
-import java.lang.String;
-import fr.imag.adele.cadse.core.GenContext;
-import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
-import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
-import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
+import fr.imag.adele.cadse.core.Validator;
 
 /**
  * @generated
@@ -100,12 +88,9 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 		return true;
 	}
 
-	@SuppressWarnings("hiding")
-	public static final String	DEFAUL_CLASS_NAME	= "fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer";
-
 	@Override
-	public String getDefaultClassName() {
-		return DEFAUL_CLASS_NAME;
+	public Class<?> getDefaultClassName() {
+		return CopyIntoFolderComposer.class;
 	}
 
 	@Override
@@ -118,31 +103,32 @@ public class CopyIntoFolderComposerManager extends EclipseComposerManager {
 		return true;
 	}
 
-	@Override
-	public List<Item> validate(final Item item, final ProblemReporter reporter) {
-		String value = item.getAttribute(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_);
-		if (value == null || value.length() == 0) {
-			value = "";
-		}
-		final Item compositeItemType = item.getPartParent();
-		final Item itemtype = CompositeItemTypeManager.getItemType(compositeItemType);
-		O: {
-			if (itemtype == null) {
-				reporter.error(item, 1, "Item type is null");
-				break O;
+	static public class CopyIntoFolderComposerValidator extends Validator {
+		@Override
+		public List<Item> validate(final Item item, final ProblemReporter reporter) {
+			String value = item.getAttribute(CopyComposerCST.COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_);
+			if (value == null || value.length() == 0) {
+				value = "";
 			}
-			final ParseTemplate pt = new ParseTemplate(itemtype, value, null);
-			try {
-				pt.main();
-				pt.validate(reporter, item);
-			} catch (final ParseException e) {
-				reporter.error(item, 0, "Error when parse target folder name value : {0} ", e.getMessage());
+			final Item compositeItemType = item.getPartParent();
+			final Item itemtype = CompositeItemTypeManager.getItemType(compositeItemType);
+			O: {
+				if (itemtype == null) {
+					reporter.error(item, 1, "Item type is null");
+					break O;
+				}
+				final ParseTemplate pt = new ParseTemplate(itemtype, value, null);
+				try {
+					pt.main();
+					pt.validate(reporter, item);
+				} catch (final ParseException e) {
+					reporter.error(item, 0, "Error when parse target folder name value : {0} ", e.getMessage());
+				}
+	
 			}
-
+			return null;
 		}
-		return super.validate(item, reporter);
 	}
-
 	/**
 	 * @generated
 	 */

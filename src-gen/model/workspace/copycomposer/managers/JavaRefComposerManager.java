@@ -18,25 +18,17 @@
  */
 package model.workspace.copycomposer.managers;
 
-import fede.workspace.eclipse.content.SubFileContentManager;
 import java.util.List;
-import java.util.Set;
 
 import model.workspace.copycomposer.CopyComposerCST;
 import fr.imag.adele.cadse.cadseg.managers.build.ComposerManager;
 import fr.imag.adele.cadse.core.CadseException;
-import java.util.UUID;
-import fr.imag.adele.cadse.core.content.ContentItem;
-import fr.imag.adele.cadse.core.GenContext;
-import fr.imag.adele.cadse.core.GenStringBuilder;
 import fr.imag.adele.cadse.core.Item;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.Link;
 import fr.imag.adele.cadse.core.LinkType;
+import fr.imag.adele.cadse.core.Validator;
 import fr.imag.adele.cadse.core.util.Convert;
-import fr.imag.adele.cadse.core.var.ContextVariable;
-import fr.imag.adele.cadse.core.var.Variable;
-import java.lang.String;
 
 /**
  * @generated
@@ -240,12 +232,9 @@ public class JavaRefComposerManager extends ComposerManager {
 		return false;
 	}
 
-	@SuppressWarnings("hiding")
-	public static final String	DEFAUL_CLASS_NAME	= "fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer";
-
 	@Override
-	public String getDefaultClassName() {
-		return DEFAUL_CLASS_NAME;
+	public Class<?> getDefaultClassName() {
+		return fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer.class;
 	}
 
 	@Override
@@ -258,17 +247,20 @@ public class JavaRefComposerManager extends ComposerManager {
 		return true;
 	}
 
-	@Override
-	public List<Item> validate(final Item item, final ProblemReporter reporter) {
-		final boolean has_sources = hasSources(item);
-		final boolean has_classes = hasClasses(item);
-		final boolean has_aspects = hasAspects(item);
+	static public class JavaRefComposerValidator extends Validator {
 
-		if (!has_aspects && !has_classes && !has_sources) {
-			reporter.error(item, 1, "Le composer doit avoir au moins un de ses flags � vrai");
+		@Override
+		public List<Item> validate(final Item item, final ProblemReporter reporter) {
+			final boolean has_sources = hasSources(item);
+			final boolean has_classes = hasClasses(item);
+			final boolean has_aspects = hasAspects(item);
+	
+			if (!has_aspects && !has_classes && !has_sources) {
+				reporter.error(item, 1, "Le composer doit avoir au moins un de ses flags � vrai");
+			}
+	
+			return null;
 		}
-
-		return super.validate(item, reporter);
 	}
 
 	public static boolean hasSources(final Item item) {
