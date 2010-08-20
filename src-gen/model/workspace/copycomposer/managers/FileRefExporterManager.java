@@ -21,7 +21,7 @@ package model.workspace.copycomposer.managers;
 import java.util.List;
 
 import model.workspace.copycomposer.CopyComposerCST;
-import fr.imag.adele.cadse.cadseg.ParseTemplate;
+import fr.imag.adele.cadse.cadseg.eclipse.ParseTemplate;
 import fr.imag.adele.cadse.cadseg.exp.ParseException;
 import fr.imag.adele.cadse.cadseg.managers.build.exporter.ExporterManager;
 import fr.imag.adele.cadse.cadseg.managers.content.ManagerManager;

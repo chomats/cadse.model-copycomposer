@@ -23,7 +23,7 @@ import java.util.List;
 
 import model.workspace.copycomposer.CopyComposerCST;
 import fede.workspace.eclipse.composition.copy.composer.CopyIntoFolderComposer;
-import fr.imag.adele.cadse.cadseg.ParseTemplate;
+import fr.imag.adele.cadse.cadseg.eclipse.ParseTemplate;
 import fr.imag.adele.cadse.cadseg.exp.ParseException;
 import fr.imag.adele.cadse.cadseg.managers.build.CompositeItemTypeManager;
 import fr.imag.adele.cadse.cadseg.managers.build.composer.EclipseComposerManager;
