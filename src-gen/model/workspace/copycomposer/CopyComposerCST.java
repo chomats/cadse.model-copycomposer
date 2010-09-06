@@ -1,119 +1,125 @@
 package model.workspace.copycomposer;
 
-
 import java.util.UUID;
 
+import fr.imag.adele.cadse.core.CadseRuntime;
 import fr.imag.adele.cadse.core.ItemType;
 import fr.imag.adele.cadse.core.LinkType;
 import fr.imag.adele.cadse.core.attribute.BooleanAttributeType;
 import fr.imag.adele.cadse.core.attribute.StringAttributeType;
 
-
-
 /**
-    @generated
-*/
+ * @generated
+ */
 public class CopyComposerCST {
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static ItemType COPY_INTO_FOLDER_COMPOSER;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static LinkType COPY_INTO_FOLDER_COMPOSER_lt_CONTENTS;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static LinkType COPY_INTO_FOLDER_COMPOSER_lt_MANAGES_LT;
 	/**
-	    @generated
-	*/
-	public final static String COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER="targetFolder";
+	 * @generated
+	 */
+	public final static String COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER = "targetFolder";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static StringAttributeType COPY_INTO_FOLDER_COMPOSER_at_TARGET_FOLDER_;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static ItemType FILE_REF_EXPORTER;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static LinkType FILE_REF_EXPORTER_lt_CONTENTS;
 	/**
-	    @generated
-	*/
-	public final static String FILE_REF_EXPORTER_at_EXPORTED_FOLDER="exportedFolder";
+	 * @generated
+	 */
+	public final static String FILE_REF_EXPORTER_at_EXPORTED_FOLDER = "exportedFolder";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static StringAttributeType FILE_REF_EXPORTER_at_EXPORTED_FOLDER_;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static ItemType JAVA_REF_COMPOSER;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static LinkType JAVA_REF_COMPOSER_lt_CONTENTS;
 	/**
-	    @generated
-	*/
-	public final static String JAVA_REF_COMPOSER_at_FOLDER_CLASSES="folder-classes";
+	 * @generated
+	 */
+	public final static String JAVA_REF_COMPOSER_at_FOLDER_CLASSES = "folder-classes";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static StringAttributeType JAVA_REF_COMPOSER_at_FOLDER_CLASSES_;
 	/**
-	    @generated
-	*/
-	public final static String JAVA_REF_COMPOSER_at_FOLDER_SOURCES="folder-sources";
+	 * @generated
+	 */
+	public final static String JAVA_REF_COMPOSER_at_FOLDER_SOURCES = "folder-sources";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static StringAttributeType JAVA_REF_COMPOSER_at_FOLDER_SOURCES_;
 	/**
-	    @generated
-	*/
-	public final static String JAVA_REF_COMPOSER_at_HAS_ASPECT="has-aspect";
+	 * @generated
+	 */
+	public final static String JAVA_REF_COMPOSER_at_HAS_ASPECT = "has-aspect";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static BooleanAttributeType JAVA_REF_COMPOSER_at_HAS_ASPECT_;
 	/**
-	    @generated
-	*/
-	public final static String JAVA_REF_COMPOSER_at_HAS_CLASSES="has-classes";
+	 * @generated
+	 */
+	public final static String JAVA_REF_COMPOSER_at_HAS_CLASSES = "has-classes";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static BooleanAttributeType JAVA_REF_COMPOSER_at_HAS_CLASSES_;
 	/**
-	    @generated
-	*/
-	public final static String JAVA_REF_COMPOSER_at_HAS_SOURCES="has-sources";
+	 * @generated
+	 */
+	public final static String JAVA_REF_COMPOSER_at_HAS_SOURCES = "has-sources";
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static BooleanAttributeType JAVA_REF_COMPOSER_at_HAS_SOURCES_;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static ItemType JAVA_REF_EXPORTER;
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
 	public static LinkType JAVA_REF_EXPORTER_lt_CONTENTS;
 
-	public static UUID _CADSE_ID = java.util.UUID.fromString("ed66d226-9000-4ad1-8c17-8226489383ef");
+	/**
+	 * @generated
+	 */
+	public static UUID _CADSE_ID = java.util.UUID
+			.fromString("ed66d226-9000-4ad1-8c17-8226489383ef");
 
 	/**
-	    @generated
-	*/
+	 * @generated
+	 */
+	public static CadseRuntime _CADSE;
+
+	/**
+	 * @generated
+	 */
 	public CopyComposerCST() {
 	}
 
 }
-
